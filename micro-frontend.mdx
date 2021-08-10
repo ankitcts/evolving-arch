@@ -1,0 +1,64 @@
+# Micro Frontend
+
+Micro Frontend is a Microservice Testing approach to front-end web development.
+
+Over time the Micro Frontend Architecture becomes a part of the application, often it is developed by a separate team, grows, and gets more difficult to maintain, this type of application is called Frontend Monolith.
+
+To solved the problem of Frontend Monolith the Micro frontend came into picture.
+
+** The Micro Frontend Architecture split the entire application by business domain across the entire stack. This enables front-end teams the same level of flexibility, testability, and velocity that backend teams get from Microservices.**
+
+## Concepts behind Micro Frontend Architecture
+
+### Technology Independence
+
+Each team should choose and upgrade the stack without coordinating with other teams. Custom elements help to hide implementation details while providing a neutral interface to others.
+
+### Code Isolation
+
+Never share a runtime, even if teams use the same framework. Build an independent application self-contained. Do not rely on shared state or global variables.
+
+### Team Prefixes
+
+Use naming conventions where isolation not possible yet. Namespace CSS, Local Storage, Events, and Cookies to avoid collisions and clarify ownership.
+
+### Native Browser Features over Custom APIs
+
+Instead of building a global PubSub system, use browser events for communication. If there is a need to build a cross-team API, try to keep it as simple as possible.
+
+### Resilient Web design
+
+The features should be useful, even if JavaScript unable to execute. To improve perceived performance, use universal rendering and progressive enhancement.
+
+## Best Practices of Micro-Frontend
+
+Different practices to implement Micro Frontend Architecture-
+
+- The Single SPA meta-framework combines multiple frameworks on the same page without refreshing the page, such a React, Vue, Angular 1, Angular 2, etc.
+- Multiple single page application lives at different URLs. For shared functionality applications, use NPM or Bower components.
+- Isolating Micro apps into Iframes using Windows. Post Message APIs and libraries to coordinate. IFrames share APIs exposed by their parent window.
+- Different modules to communicate over a shared events bus. Each module is working on its own framework, as long as it handles incoming and outgoing events.
+
+## How to Adopt Micro Frontend Architecture?
+
+### Integration in the Browser
+
+Web components provide a way to create fragments of Front-End imported into Web applications. Those fragments can be packaged into Microservices together with the back-end. Services built, completed with both logic and visual representation packed together. Using this approach, Front-End applications reduced to routing make decisions involving which set of components displayed and orchestration of events between different web components.
+
+### Web Components
+
+Web components allow the creation of reusable components imported into Web applications. These are like widgets imported into any Web page. These are currently working in browsers such as Chrome, Opera, and Firefox. If the browser does not support web components natively, compatibility is accomplished using JavaScript Polyfills. Web components consist of 4 main elements used separately or altogether
+
+1. Custom Elements
+1. Shadow DOM
+1. HTML Imports
+1. HTML Templates
+
+## Benefits of Micro Frontend Architecture
+
+- Support code and style isolation, an individual development team can choose their own technology. The development and deployment speed is very fast.
+- It helps in Continuous Deployment.
+- The testing becomes very simple, and for every small change, you don’t have to go and touch the entire application.
+- Front-end renovation - Improving new things becomes easier.
+- High Resilience and Better Maintenance.
+- Support code and style isolation.

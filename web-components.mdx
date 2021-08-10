@@ -1,0 +1,9 @@
+# Web Components
+
+Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.
+
+## Pillars for web components
+
+1. **Custom Elements** We can now create our own html tags like `<my-element>` with the set of api provided for the same. Just like we create a React or Angular component to isolate a piece of functionality and to perform some desired behaviour on some event, we can use the custom elements api to do the same without using any third party framework.
+1. **Shadow DOM** Shadow DOM is a great way to encapsulate the DOM and CSSOM of our web component so that it doesn’t mess around or get messed around by it’s surrounding or ancestor elements. In other words, it doesn’t allow leaking of styles from the parent to children sub-dom trees and vice versa. The use case fits best when you want to create a pluggable component like a chat support window inside the application such that it’s theming and styles are not influenced by the host application (Remember using iframes for the same thing?)
+1. **Template Tag:** The `<template>` and `<slot>` tags can be used to create markup that can be loaded into the existing DOM on demand, pretty much like we create handlebars but sadly `<template>` doesn’t support interpolation ( {{title}} ) of dynamic variables.

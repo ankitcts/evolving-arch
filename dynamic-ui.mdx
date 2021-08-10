@@ -1,0 +1,80 @@
+# Config Driven Development (CDD)
+
+A config driven development involves maintaining a config in say JSON format, which can be used to do all the mundane and repetitive tasks of rendering.
+
+Benefits
+
+- Provides a generic interface to develop things which help the project to scale.
+- Saves a lot of development time and effort. Instead of developing new pages or modules in a imperative way by writing the code for each module yourself, you can just configure the module or page.
+- The config can be decoupled from the frontend code base and hence any modification required in the future won’t require a deployment on UI.
+- Since the config is maintained in the backend as JSON or at Widget Configuration, easy for product teams to change the configuration and incorporate a new element or widget (No UI Dev needed).
+- Centralised code for taking and rendering the config would be more robust since any errors would be centralised to that code only. Contrary to a scenario where we had different codebases for different modules.
+
+## Config Parser and UI Framework
+
+The config provided as JSON need to be read and translated into Web Components / React Components to be rendered on UI.
+
+---
+
+    UI Component Library
+    -------------------- Rendering Mechanism (Provide State to component as props)
+    UI State Component (Create State Map for each component)- Generic
+    --------------------
+    Component Middleware (Parse Domain to Component Mapping)
+    -------------------- Config parser (Converting each Domain to Component Mapping)
+    UI State Middleware (Managing State at Domain Layer)
+    --------------------
+    Domain Layer
+    -------------------- Config parser (Converting API response to Domain)
+    API
+
+---
+
+## Dynamic Form Tasks
+
+- Construct Component Mapping
+- Consume any Third Party UI Library
+- Mapping of Component props to properties (Dynamically)
+- Manging State at Form / Page
+- Managing State at Module
+- Manging State at Component
+- Dynamic Behavior of Components
+- Dynamic Visibility of Components
+- Dynamic change in properties of related entities / fields
+- Show and Hide behavior of the fields dynamically on change
+- Error states
+- Field Error States
+- Render Components based on Config and API
+- Event change forr Form Fields
+- Autosave behavior
+
+## Reactive Components
+
+Now, the way we want our components to be dynamic and reactive enough to respond to any changes in the so called “props” that we pass to them.
+
+### React
+
+In React, we pass props to a component, when any of the prop changes, a reconciliation process is triggered internally by react which traverses the whole component hierarchy to mark any changes required in the given component at a time.
+
+### Angular
+
+we specify @Input() decorator for all the input props of given components. By doing this, all the frameworks maintain a separate space in the memory for internal housekeeping like maintaining a registry of the props of a given component and checking the previous props and next props and then responding to any changes if found by re-rendering the part to be rendered. Hence, they always make sure that the component view is always in the sync with the component state or model.
+
+### Web Components
+
+- Using Mutation Observer API
+- Web Components Api attributeChangedCallback(attrName, oldValue, newValue)
+
+## Comparison for Framework:
+
+### Data Binding
+
+- Angular or vue : These frameworks have compilers or dom parsers which look for these bindings and update the UI in response to any change in the bound properties(model). But here, we have to explicitly, write updation logic for handling every prop/attribute change
+
+### Config parser
+
+None of the Framework provide in house config parser and we need to create our own config parser.
+
+### State Handling
+
+- React - In React, components are built to encapsulate the state they are in. This enables the components to pass rich data around and does not require the Document Object Model (DOM) to handle the state.
