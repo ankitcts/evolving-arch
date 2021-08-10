@@ -1,0 +1,94 @@
+# State Management
+
+## Mitigate prop drilling
+
+- Use Context to share global state across application.
+- As your app gets larger, prop drilling becomes impractical.
+- Pass state to component using Context.
+
+## Update page after creating/updating data, without a refresh
+
+- Update only the specific item in UI and not a complete page refresh.
+- Make item as observable and watches for any changes in the value of that property.
+
+## Manage your state maintainably by storing it in the right places
+
+Different States
+
+- **Data + loading state**
+  - API Fetch call
+- **Global UI state**
+  - User specific data , specific to user session.
+  - Data saved for user session.
+- **Local UI state**
+  - Component States when user takes an action.
+- **Form state**
+  - Form field values (Autosave / Session specific)
+- **URL state**
+  - User current route, Read and update window.location; don’t create a second source of truth
+- **Page state**
+  - Component Interacting in same page / another route
+
+## Learn other state management libraries in addition to just Redux
+
+Redux is probably good enough for your application. Pointers for not using Redux.
+
+- Why ?
+  - Normalizing data from server to client.
+  - Libraries like Redux ORM need to exist?
+  - Re-implement a bunch of server-side code on the client is an overhead.
+- Adding a simple feature require
+  - Lot of bolierplate code
+  - Touch multiple files.
+- There are benefits of writing immutable, functional code, but writing Redux reducers feels needlessly unintuitive.
+- Redux Thunk or Saga add a layer of complexity for making a simple API call.
+  - I’d like to simply make an API call in an action and update my Redux store.
+
+Switching to MobX
+
+- Each store is just a plain JavaScript class. There’s no boilerplate.
+- Each piece of state in a store is just a class variable.
+- Actions are just methods in the class with an @action decorator.
+- You can make API calls in your actions just like you normally would
+  - just wrap the code that updates your state after the call with runInAction.
+  - Simple to use async / await
+- It supports observability.
+
+## React app has two layers
+
+State and view layer
+
+- A JavaScript object, also known as your state, and methods that update it.
+- View layer, which turns that JavaScript object into DOM elements
+
+**_`“UI is a function of state”`_** and **_`“React is just a view layer”`_**.
+
+Benefits :
+
+- State Decoupling
+- Testable State
+- Isolated View Layer
+- Independent Testable View Component
+
+## Shared vs non-shared components
+
+### Fetching Data in Component
+
+- Component is Not reusable
+- Component state and Data are Merged inot one another
+- Component Becomes complex
+- Isolation of test cases for data and Component is hard.
+
+### Fetching Data in Container component
+
+- Container component is handling the data and states
+- Container component becomes specific to domain
+- Every domain / module needs another container implemntation as per the business.
+
+### Fetching Data in Store
+
+- Data Fetching is isolated
+- Container component can act as presentational component.
+- Data flow from Store as props to component.
+
+**Introduction of Domain**

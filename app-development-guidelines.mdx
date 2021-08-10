@@ -1,0 +1,112 @@
+## UI framework
+
+- Antd[https://ant.design/]
+
+  Ant Design is an open-source design system for web applications. It provides a set of high-quality out-of-the-box React components.
+
+- Material UI [https://material-ui.com/]
+
+  Material UI is another popular ReactJS UI framework with 55.6K GitHub Stars and 15K GitHub Forks.
+  It offers grid-based layouts, flexible animation, add-ons, and depth effects.
+
+- Semantic UI React[https://react.semantic-ui.com/]
+
+  Semantic UI React is an official React JS integration for Semantic UI. Actually, it offers almost the same features as the official tool does.
+
+## Styling in React development
+
+- Modular Stylesheets (CSS/SCSS Modules);
+- CSS-in-JS (styled-components, glamorous, emotion, etc).
+
+## State management
+
+Why State management ?
+
+- Make Application scalable / extensible .
+
+### Redux
+
+Redux is a tool for managing both data and interface state in JavaScript applications.
+It is inspired by Flux and Elm principles.
+
+Redux has three main principles.
+
+- Single source of truth.
+
+  Redux uses only one store for the entire application state. Since the state is stored in one place, it is called the only source of truth.
+
+- State is read-only
+
+  “The only way to change the state is to emit an action, an object describing what happened”.
+
+- Changes are made with pure functions
+
+  Reducers are functions that process actions and can make changes in the state. In fact, these are pure JavaScript functions that do not have side effects and their return is determined only by input values.
+
+### Mobx
+
+MobX is a library that allows managing the application state.
+It becomes scalable and simple with the help of TFRP.
+
+- State
+
+  Arrays, references, and objects are considered as the application data cells in a state.
+
+- Derivations
+
+  Derivations are the value that can be processed by the application state automatically.
+
+- Reactions
+
+  Reactions mainly take care of input-output operations and DOM updating. Network requests need to be handled on time automatically.
+
+- Actions
+
+  Actions modify the state and MobX makes sure that all the changes are processed synchronically.
+
+The library supports any modern JS environment: Node.js, React Native, Rhino and all the browsers (except for IE 8 and earlier versions).
+
+**MobX is not a framework**
+
+## Testing
+
+It includes planning, test creation and running, and analysis of the received results.
+It is a process of validating the functionality created within the defined requirements.
+It becomes possible by testing a product within artificially created situations.
+
+Additional Activities:
+
+- Analysis and planning;
+- Development of test scenarios;
+- Assessment of tests completing criteria;
+- Writing reports;
+- Documentation and code review;
+- Static analysis.
+
+Agile testing Pyramid
+
+The pyramid shows that many unit-snapshot tests can be used to validate one integration test. This way, many integration tests can be used to validate one manual test. At the peak of the pyramid,
+we have an end-to-end test: manual testing of the whole application.
+
+---
+
+                    Manual
+                 _____________
+                  Integration
+                _______________
+                Unit  | Snapshot
+              ___________________
+
+---
+
+- Manual testing
+  The main goal of this technique is to pre-verify that the defined functionality is working.
+  Also, manual tests define whether this functionality has errors and provides the expected results. This testing method is slow and unsustainable. Also, it is rather expensive to maintain.
+
+- Integration testing
+  The purpose of this technique is to expose faults in the interaction between integrated units.
+  It can be good to test connections between components and finding bugs in these liaisons.
+
+- Unit/Snapshot testing
+  This testing method is useful when you concentrate on a certain isolated element and its logic.
+  The unit/snapshot technique is one of the easiest approaches to test components.
